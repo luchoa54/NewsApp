@@ -35,7 +35,7 @@ class ArticleView: UIView {
     }
 
     private func setupTitle() {
-        titleLabel.text = "Pesquisar"
+        titleLabel.text = "News App"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 32)
         titleLabel.textAlignment = .left
         titleLabel.textColor = .white
@@ -63,6 +63,7 @@ class ArticleView: UIView {
     
     private func setupTableView() {
         tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TemplateCell") 
         tableView.register(ArticleTableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -93,12 +94,10 @@ class ArticleView: UIView {
 
 extension ArticleView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Retorna o número de linhas da tabela
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Retorna a célula da tabela
         return UITableViewCell()
     }
 }

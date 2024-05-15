@@ -79,9 +79,9 @@ class ArticleDetailView: UIView {
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            articleImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
+            articleImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0),
             articleImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            articleImageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            articleImageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -10),
             articleImageView.heightAnchor.constraint(equalToConstant: 200),
             
             titleLabel.topAnchor.constraint(equalTo: articleImageView.bottomAnchor, constant: 20),
@@ -94,7 +94,7 @@ class ArticleDetailView: UIView {
             dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             dateLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 5),
             
-            contentLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 20),
+            contentLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 10),
             contentLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             contentLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             contentLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20)

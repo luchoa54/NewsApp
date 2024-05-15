@@ -33,6 +33,24 @@ class ArticleTableViewCell: UITableViewCell {
         return label
     }()
     
+    let authorLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.textColor = .darkGray
+        return label
+    }()
+    
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .gray
+        return label
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
@@ -47,26 +65,33 @@ class ArticleTableViewCell: UITableViewCell {
         contentView.addSubview(containerView)
         containerView.addSubview(articleImageView)
         containerView.addSubview(titleLabel)
+        containerView.addSubview(authorLabel)
+        containerView.addSubview(descriptionLabel)
         
         NSLayoutConstraint.activate([
-            // Container view constraints
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             
-            // Image View constraints
-            articleImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            articleImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            articleImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            articleImageView.widthAnchor.constraint(equalToConstant: 100), // Width of the image
-            
-            // Title Label constraints
-            titleLabel.leadingAnchor.constraint(equalTo: articleImageView.trailingAnchor, constant: 10),
-            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            articleImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 0),
+            articleImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0),
+            articleImageView.widthAnchor.constraint(equalTo: containerView.widthAnchor, constant: 0),
+            articleImageView.heightAnchor.constraint(equalToConstant: 100),
+
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            titleLabel.topAnchor.constraint(equalTo: articleImageView.bottomAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
-            titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10)
+
+            authorLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            authorLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
+            authorLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
+
+            descriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            descriptionLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 5),
+            descriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
+            descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -10)
+
         ])
     }
 }
-

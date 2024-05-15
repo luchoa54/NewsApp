@@ -40,23 +40,34 @@ class ArticleViewController: UIViewController {
 extension ArticleViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return UITableView.automaticDimension
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articleViewModel.articles.count
+        // Retorna o número de artigos se houver algum disponível, caso contrário, retorna 1 para mostrar a mensagem de template
+        return articleViewModel.articles.isEmpty ? 1 : articleViewModel.articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ArticleTableViewCell
-        let article = articleViewModel.articles[indexPath.row]
-        cell.titleLabel.text = article.title
-        cell.articleImageView.image = UIImage(named: "fallback")
-        cell.backgroundColor = UIColor(hex: "#F4F4F4")
-        if let imageURL = URL(string: article.urlToImage ?? "") {
-            cell.articleImageView.load(url: imageURL)
+        // Verifica se há artigos disponíveis
+        if articleViewModel.articles.isEmpty {
+            // Se não houver artigos, exibe a célula de template com a mensagem adequada
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TemplateCell", for: indexPath)
+            cell.textLabel?.text = "Nenhum resultado encontrado"
+            return cell
+        } else {
+            // Se houver artigos, exibe os artigos normalmente
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ArticleTableViewCell
+            let article = articleViewModel.articles[indexPath.row]
+            cell.titleLabel.text = article.title
+            cell.authorLabel.text = article.author
+            cell.descriptionLabel.text = article.description
+            cell.articleImageView.image = UIImage(named: "fallback")
+            cell.backgroundColor = UIColor(hex: "#F4F4F4")
+            if let imageURL = URL(string: article.urlToImage ?? "") {
+                cell.articleImageView.load(url: imageURL)
+            }
+            return cell
         }
-        return cell
     }
 }
 
