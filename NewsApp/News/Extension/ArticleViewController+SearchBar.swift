@@ -10,7 +10,7 @@ import UIKit
 extension ArticleViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let keyword = searchBar.text else { return }
-        articleViewModel.fetchArticles(keyword: keyword) { status,message in
+        articleViewModel.getAllArticles(keyword: keyword) { status,message in
             
             if message != "" && !status {
                 DispatchQueue.main.async {

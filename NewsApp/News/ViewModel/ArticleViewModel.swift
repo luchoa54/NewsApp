@@ -19,7 +19,7 @@ class ArticleViewModel {
         self.newsService = newsService
     }
     
-    func fetchArticles(keyword: String, completion: @escaping CompletionHandler) {
+    func getAllArticles(keyword: String, completion: @escaping CompletionHandler) {
         newsService.fetchArticles(keyword: keyword) { [weak self] (articles, error) in
             
             guard Reachability.isInternetAvailable() else {
@@ -42,7 +42,30 @@ class ArticleViewModel {
             }
         }
     }
-
+    
+    func getTopHeadlines(country: HeadlineCountry, completion: @escaping CompletionHandler) {
+        
+        newsService.fetchTopHeadlines(country: .br) { [weak self] (articles, error) in
+            guard Reachability.isInternetAvailable() else {
+                completion(false, "No internet connection")
+                return
+            }
+            
+            guard let self = self else { return }
+            
+            if let error = error {
+                print("Erro ao buscar os artigos:", error.localizedDescription)
+                completion(false, error.localizedDescription)
+            } else if let articles = articles {
+                if articles.isEmpty {
+                    completion(false, "No articles found for the country '\(country)'")
+                } else {
+                    self.allArticles = articles
+                    completion(true, "")
+                }
+            }
+        }
+    }
     
     
     func numberOfRowsInSection(section: Int) -> Int {
