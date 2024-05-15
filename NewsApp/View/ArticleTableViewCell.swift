@@ -77,7 +77,7 @@ class ArticleTableViewCell: UITableViewCell {
             articleImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 0),
             articleImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0),
             articleImageView.widthAnchor.constraint(equalTo: containerView.widthAnchor, constant: 0),
-            articleImageView.heightAnchor.constraint(equalToConstant: 100),
+            articleImageView.heightAnchor.constraint(equalToConstant: 200),
 
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
             titleLabel.topAnchor.constraint(equalTo: articleImageView.bottomAnchor, constant: 10),
