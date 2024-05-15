@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class ArticleView: UIView {
+    
     let tableView = UITableView()
     let searchBar = UISearchBar()
     let templateLabel = UILabel()

@@ -19,7 +19,8 @@ class NewsService: NewsServiceProtocol {
     private init() {}
     
     func fetchArticles(keyword: String, completion: @escaping ([Article]?, Error?) -> Void) {
-        guard let url = URL(string: "https://newsapi.org/v2/everything?q=\(keyword)&apiKey=\(ProcessInfo.processInfo.environment["NEWS_API_KEY"] ?? "")") else {
+        let apiKey = ProcessInfo.processInfo.environment["NEWS_API_KEY"]
+        guard let url = URL(string: "https://newsapi.org/v2/everything?q=\(keyword)&apiKey=\(apiKey ?? "")") else {
             completion(nil, NSError(domain: "Invalid URL", code: -1, userInfo: nil))
             return
         }
