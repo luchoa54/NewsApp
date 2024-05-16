@@ -10,6 +10,7 @@
 		6614F3CA2BF56B4E00BD79B4 /* ArticleViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6614F3C92BF56B4E00BD79B4 /* ArticleViewController+DataSource.swift */; };
 		6614F3CC2BF56B6100BD79B4 /* ArticleViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6614F3CB2BF56B6100BD79B4 /* ArticleViewController+Delegate.swift */; };
 		6614F3CE2BF56B7500BD79B4 /* ArticleViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6614F3CD2BF56B7500BD79B4 /* ArticleViewController+SearchBar.swift */; };
+		6614F3D02BF5E47900BD79B4 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6614F3CF2BF5E47900BD79B4 /* Reachability.swift */; };
 		66C1A1492BF2C12200333429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C1A1482BF2C12200333429 /* AppDelegate.swift */; };
 		66C1A14B2BF2C12200333429 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C1A14A2BF2C12200333429 /* SceneDelegate.swift */; };
 		66C1A14D2BF2C12200333429 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C1A14C2BF2C12200333429 /* ArticleViewController.swift */; };
@@ -53,6 +54,7 @@
 		6614F3C92BF56B4E00BD79B4 /* ArticleViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArticleViewController+DataSource.swift"; sourceTree = "<group>"; };
 		6614F3CB2BF56B6100BD79B4 /* ArticleViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArticleViewController+Delegate.swift"; sourceTree = "<group>"; };
 		6614F3CD2BF56B7500BD79B4 /* ArticleViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArticleViewController+SearchBar.swift"; sourceTree = "<group>"; };
+		6614F3CF2BF5E47900BD79B4 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		66C1A1452BF2C12200333429 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66C1A1482BF2C12200333429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66C1A14A2BF2C12200333429 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				6614F3C92BF56B4E00BD79B4 /* ArticleViewController+DataSource.swift */,
 				6614F3CB2BF56B6100BD79B4 /* ArticleViewController+Delegate.swift */,
 				6614F3CD2BF56B7500BD79B4 /* ArticleViewController+SearchBar.swift */,
+				6614F3CF2BF5E47900BD79B4 /* Reachability.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 			files = (
 				66C1A18C2BF40F4A00333429 /* NewsService.swift in Sources */,
 				66C1A1842BF2C4D000333429 /* ArticleView.swift in Sources */,
+				6614F3D02BF5E47900BD79B4 /* Reachability.swift in Sources */,
 				66C1A1822BF2C45F00333429 /* ArticleResponse.swift in Sources */,
 				66C1A1992BF4234E00333429 /* UISearchBar+BarColor.swift in Sources */,
 				66C1A1912BF418B100333429 /* UIImage+LoadImageFromURL.swift in Sources */,

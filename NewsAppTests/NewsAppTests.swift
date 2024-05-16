@@ -35,23 +35,30 @@ final class NewsAppTests: XCTestCase {
     
     // Teste para verificar se os artigos são recuperados corretamente
     func testFetchArticles() {
-        // Crie uma instância do NewsService
         let newsService = NewsService.shared
         
-        // Defina a expectativa
         let expectation = XCTestExpectation(description: "Artigos recuperados com sucesso")
         
-        // Chame o método fetchArticles com uma palavra-chave
         newsService.fetchArticles(keyword: "apple") { (articles, error) in
-            // Verifique se não há erro
             XCTAssertNil(error)
-            // Verifique se os artigos foram recuperados com sucesso
             XCTAssertNotNil(articles)
-            // Complete a expectativa
             expectation.fulfill()
         }
         
-        // Aguarde a expectativa ser cumprida
+        wait(for: [expectation], timeout: 5.0)
+    }
+    
+    func testFetchTopHeadlines() {
+        let newsService = NewsService.shared
+        
+        let expectation = XCTestExpectation(description: "Headlines recuperados com sucesso")
+        
+        newsService.fetchTopHeadlines(country: .br) { (articles, error) in
+            XCTAssertNil(error)
+            XCTAssertNotNil(articles)
+            expectation.fulfill()
+        }
+        
         wait(for: [expectation], timeout: 5.0)
     }
     
